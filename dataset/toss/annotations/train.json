@@ -1,0 +1,33 @@
+{
+    "info": {
+      "description": "COCO 2017 Dataset",
+      "url": "http://cocodataset.org",
+      "version": "1.0",
+      "year": 2017,
+      "contributor": "COCO Consortium",
+      "date_created": "2017/09/01"
+    },
+    "images": [
+       {
+        "file_name": "1.png",
+        "height": 960,
+        "width": 720,
+        "id": 1
+      }
+    ],
+    "annotations": [
+      {
+        "image_id": 1,
+        "bbox": [473.07,395.93,38.65,28.67],
+        "category_id": 0,
+        "id": 1
+      }
+    ],
+    "categories": [
+          {"id": 0,"name": "big_balance"},
+          {"id": 1,"name": "sender"},
+          {"id": 2,"name": "in_out"},
+          {"id": 3,"name": "time"},
+          {"id": 4,"name": "small_balance"}
+    ]
+}
