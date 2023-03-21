@@ -50,7 +50,7 @@ class ConvModule(nn.Module):
         self.conv_cfg = conv_cfg
         self.norm_cfg = norm_cfg
         self.activation = activation
-        self.inplace = inplace
+        self.inplace = False
         self.order = order
         assert isinstance(self.order, tuple) and len(self.order) == 3
         assert set(order) == set(['conv', 'norm', 'act'])
@@ -143,7 +143,7 @@ class DepthwiseConvModule(nn.Module):
         super(DepthwiseConvModule, self).__init__()
         assert activation is None or isinstance(activation, str)
         self.activation = activation
-        self.inplace = inplace
+        self.inplace = False
         self.order = order
         assert isinstance(self.order, tuple) and len(self.order) == 6
         assert set(order) == set(['depthwise', 'dwnorm', 'act', 'pointwise', 'pwnorm', 'act'])
