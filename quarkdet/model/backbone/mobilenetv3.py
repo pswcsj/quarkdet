@@ -29,7 +29,7 @@ class SeModule(nn.Module):
             nn.AdaptiveAvgPool2d(1),
             nn.Conv2d(in_size, in_size // reduction, kernel_size=1, stride=1, padding=0, bias=False),
             nn.BatchNorm2d(in_size // reduction),
-            nn.ReLU(inplace=True),
+            nn.ReLU(),
             nn.Conv2d(in_size // reduction, in_size, kernel_size=1, stride=1, padding=0, bias=False),
             nn.BatchNorm2d(in_size),
             hsigmoid()
@@ -80,12 +80,12 @@ class MobileNetV3_Large(nn.Module):
         self.hs1 = hswish()
 
         self.bneck = nn.Sequential(
-            Block(3, 16, 16, 16, nn.ReLU(inplace=True), None, 1),
-            Block(3, 16, 64, 24, nn.ReLU(inplace=True), None, 2),
-            Block(3, 24, 72, 24, nn.ReLU(inplace=True), None, 1),
-            Block(5, 24, 72, 40, nn.ReLU(inplace=True), SeModule(40), 2),
-            Block(5, 40, 120, 40, nn.ReLU(inplace=True), SeModule(40), 1),
-            Block(5, 40, 120, 40, nn.ReLU(inplace=True), SeModule(40), 1),
+            Block(3, 16, 16, 16, nn.ReLU(), None, 1),
+            Block(3, 16, 64, 24, nn.ReLU(), None, 2),
+            Block(3, 24, 72, 24, nn.ReLU(), None, 1),
+            Block(5, 24, 72, 40, nn.ReLU(), SeModule(40), 2),
+            Block(5, 40, 120, 40, nn.ReLU(), SeModule(40), 1),
+            Block(5, 40, 120, 40, nn.ReLU(), SeModule(40), 1),
             Block(3, 40, 240, 80, hswish(), None, 2),
             Block(3, 80, 200, 80, hswish(), None, 1),
             Block(3, 80, 184, 80, hswish(), None, 1),
