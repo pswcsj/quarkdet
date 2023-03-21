@@ -46,8 +46,8 @@ model:
 data:
   train:
     name: toss
-    img_path: ./dataset/toss/train
-    ann_path: /dataset/toss/annotations/train.json
+    img_path: dataset/toss/train
+    ann_path: dataset/toss/annotations/train.json
     input_size: [320,320] #[w,h]
     keep_ratio: True
     pipeline:
@@ -64,8 +64,8 @@ data:
       normalize: [[103.53, 116.28, 123.675], [57.375, 57.12, 58.395]]
   val:
     name: toss
-    img_path: ./dataset/toss/test
-    ann_path: ./dataset/toss/annotations/test.json
+    img_path: dataset/toss/test
+    ann_path: dataset/toss/annotations/test.json
     input_size: [320,320] #[w,h]
     keep_ratio: True
     pipeline:
