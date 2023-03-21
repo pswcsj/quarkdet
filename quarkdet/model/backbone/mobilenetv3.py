@@ -12,13 +12,13 @@ from torch.nn import init
 
 class hswish(nn.Module):
     def forward(self, x):
-        out = x * F.relu6(x + 3) / 6
+        out = x * F.relu6(x + 3, inplace=True) / 6
         return out
 
 
 class hsigmoid(nn.Module):
     def forward(self, x):
-        out = F.relu6(x + 3) / 6
+        out = F.relu6(x + 3, inplace=True) / 6
         return out
 
 
@@ -142,9 +142,9 @@ class MobileNetV3_Small(nn.Module):
         self.hs1 = hswish()
 
         self.bneck = nn.Sequential(
-            Block(3, 16, 16, 16, nn.ReLU(), SeModule(16), 2),
-            Block(3, 16, 72, 24, nn.ReLU(), None, 2),
-            Block(3, 24, 88, 24, nn.ReLU(), None, 1),
+            Block(3, 16, 16, 16, nn.ReLU(inplace=True), SeModule(16), 2),
+            Block(3, 16, 72, 24, nn.ReLU(inplace=True), None, 2),
+            Block(3, 24, 88, 24, nn.ReLU(inplace=True), None, 1),
             Block(5, 24, 96, 40, hswish(), SeModule(40), 2),
             Block(5, 40, 240, 40, hswish(), SeModule(40), 1),
             Block(5, 40, 240, 40, hswish(), SeModule(40), 1),

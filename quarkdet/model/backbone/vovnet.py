@@ -28,7 +28,7 @@ def conv3x3(in_channels, out_channels, module_name, postfix,
         ('{}_{}/norm'.format(module_name, postfix),
             nn.BatchNorm2d(out_channels)),
         ('{}_{}/relu'.format(module_name, postfix),
-            nn.ReLU()),
+            nn.ReLU(inplace=True)),
     ]
 
 
@@ -46,7 +46,7 @@ def conv1x1(in_channels, out_channels, module_name, postfix,
         ('{}_{}/norm'.format(module_name, postfix),
             nn.BatchNorm2d(out_channels)),
         ('{}_{}/relu'.format(module_name, postfix),
-            nn.ReLU()),
+            nn.ReLU(inplace=True)),
     ]
 
 
