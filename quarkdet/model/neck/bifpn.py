@@ -179,9 +179,9 @@ class BiFPNModule(nn.Module):
         levels = self.levels#4
         # w relu
         w1 = self.relu1(self.w1)
-        w1 /= torch.sum(w1, dim=0) + self.eps  # normalize
+        w1 = w1/(torch.sum(w1, dim=0) + self.eps)  # normalize
         w2 = self.relu2(self.w2)
-        w2 /= torch.sum(w2, dim=0) + self.eps  # normalize
+        w2 = w2/(torch.sum(w2, dim=0) + self.eps)  # normalize
         # build top-down
         idx_bifpn = 0
         pathtd = inputs
