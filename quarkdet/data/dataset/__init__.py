@@ -1,6 +1,6 @@
 import copy
 from .coco import CocoDataset
-
+from .toss import TossDataset
 
 # cfg의 속성들
 # name: 데이터셋 이름
@@ -16,3 +16,6 @@ def build_dataset(cfg, mode):
         dataset_cfg.pop('name')  # 데이터셋 이름 부분을 제외시킨다
         # mode(train or test), 그리고 cfg에 있는 내용들을 인자로 넘겨 데이터셋을 만든다
         return CocoDataset(mode=mode, **dataset_cfg)
+    elif dataset_cfg['name'] == 'toss':
+        dataset_cfg.pop('name')
+        return TossDataset(mode = mode, **dataset_cfg)
