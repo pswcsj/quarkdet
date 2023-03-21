@@ -41,7 +41,7 @@ class ConvModule(nn.Module):
                  conv_cfg=None,
                  norm_cfg=None,
                  activation='ReLU',
-                 inplace=False,
+                 inplace=True,
                  order=('conv', 'norm', 'act')):
         super(ConvModule, self).__init__()
         assert conv_cfg is None or isinstance(conv_cfg, dict)
@@ -138,7 +138,7 @@ class DepthwiseConvModule(nn.Module):
                  bias='auto',
                  norm_cfg=dict(type='BN'),
                  activation='ReLU',
-                 inplace=False,
+                 inplace=True,
                  order=('depthwise', 'dwnorm', 'act', 'pointwise', 'pwnorm', 'act')):
         super(DepthwiseConvModule, self).__init__()
         assert activation is None or isinstance(activation, str)

@@ -14,4 +14,4 @@ def act_layers(name):
     if name == 'LeakyReLU':
         return nn.LeakyReLU(negative_slope=0.1)
     else:
-        return activations[name]()
+        return activations[name](inplace=True)
