@@ -12,6 +12,6 @@ activations = {'ReLU': nn.ReLU,
 def act_layers(name):
     assert name in activations.keys()
     if name == 'LeakyReLU':
-        return nn.LeakyReLU(negative_slope=0.1, inplace=True)
+        return nn.LeakyReLU(negative_slope=0.1e)
     else:
         return activations[name](inplace=True)
