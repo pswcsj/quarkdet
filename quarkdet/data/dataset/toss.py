@@ -185,7 +185,7 @@ class TOSS:
 
         print('Loading and preparing results...')
         tic = time.time()
-        if type(resFile) == str or (PYTHON_VERSION == 2 and type(resFile) == 'unicode'):
+        if type(resFile) == str:
             with open(resFile) as f:
                 anns = json.load(f)
         elif type(resFile) == np.ndarray:
@@ -196,12 +196,14 @@ class TOSS:
         annsImgIds = [ann['image_id'] for ann in anns]
         assert set(annsImgIds) == (set(annsImgIds) & set(self.getImgIds())), \
                'Results do not correspond to current coco set'
-        if 'caption' in anns[0]:
+        # 오류 발생 원인: 객체가 아무 것도 탐지되지 않으면 anns가 빈 배열이 되는데 밑에서 anns[0]으로 접근하니 오류가 나는 것
+
+        if anns and 'caption' in anns[0]:
             imgIds = set([img['id'] for img in res.dataset['images']]) & set([ann['image_id'] for ann in anns])
             res.dataset['images'] = [img for img in res.dataset['images'] if img['id'] in imgIds]
             for id, ann in enumerate(anns):
                 ann['id'] = id+1
-        elif 'bbox' in anns[0] and not anns[0]['bbox'] == []:
+        elif anns and 'bbox' in anns[0] and not anns[0]['bbox'] == []:
             res.dataset['categories'] = copy.deepcopy(self.dataset['categories'])
             for id, ann in enumerate(anns):
                 bb = ann['bbox']

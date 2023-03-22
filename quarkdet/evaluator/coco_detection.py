@@ -49,8 +49,11 @@ class CocoDetectionEvaluator:
         return json_results
 
     def evaluate(self, results, save_dir, epoch, logger, rank=-1):
+        #results를 조금 더 정재해줘 json으로 변환
         results_json = self.results2json(results)
+        #json 파일을 저장할 path를 만듦
         json_path = os.path.join(save_dir, 'results{}.json'.format(rank))
+        #json 파일을 저장
         json.dump(results_json, open(json_path, 'w'))
         coco_dets = self.coco_api.loadRes(json_path)
         coco_eval = COCOeval(copy.deepcopy(self.coco_api), copy.deepcopy(coco_dets), "bbox")

@@ -100,7 +100,7 @@ schedule:
     cooldown: 0
     min_lr: 0
     eps: 0.000000001 #1e-08
-
+  # 이 interval마다 한번씩 validation을 진행함
   val_intervals: 10
 evaluator:
   name: CocoDetectionEvaluator
@@ -108,7 +108,7 @@ evaluator:
 
 log:
   interval: 10 #10
-# 이 interval마다 한번씩 validation을 진행함
+# 이 interval마다 한번씩 log기록 진행함
 class_names: ["big_balance", "sender", "in_out", "time", "small_balance"]
 
 #   {

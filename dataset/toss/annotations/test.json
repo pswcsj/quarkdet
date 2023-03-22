@@ -21,7 +21,8 @@
         "bbox": [473.07,395.93,38.65,28.67],
         "category_id": 0,
         "id": 1,
-        "iscrowd": 0
+        "iscrowd": 0,
+        "area": 1108.0955
       }
     ],
     "categories": [
