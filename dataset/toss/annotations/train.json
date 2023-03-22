@@ -20,7 +20,8 @@
         "image_id": 1,
         "bbox": [473.07,395.93,38.65,28.67],
         "category_id": 0,
-        "id": 1
+        "id": 1,
+        "iscrowd": 0
       }
     ],
     "categories": [
