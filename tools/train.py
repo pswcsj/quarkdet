@@ -120,6 +120,7 @@ def main(args):
         if 'load_model' in cfg.schedule:
             trainer.load_model(cfg)
 
+    #cfg는 config 파일. 현재는 CocoEvalDetector이 선택됨. val_dataset은
     evaluator = build_evaluator(cfg, val_dataset)
 
     logger.log('Starting training...')

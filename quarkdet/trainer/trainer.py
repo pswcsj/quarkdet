@@ -153,8 +153,9 @@ class Trainer:
         if start_epoch > 1:
             for param_group, lr in zip(self.optimizer.param_groups, self.lr_scheduler.get_lr()):
                 param_group['lr'] = lr
-
+        #start_epoch부터 total_epochs까지 학습 수행
         for epoch in range(start_epoch, self.cfg.schedule.total_epochs + 1):
+            #1 epoch 정도 학습을 진행한 후 결괏값을 반환
             results, train_loss_dict,total_loss = self.run_epoch(epoch, train_loader, mode='train')
             print("santiago loss:",total_loss)
             #print("self.cfg.lr_schedule.name:",self.cfg.schedule.lr_schedule.name)
@@ -164,13 +165,15 @@ class Trainer:
                 self.lr_scheduler.step(total_loss)
             else:
                 self.lr_scheduler.step()
-                
+            #모델 저장
             save_model(self.rank, self.model, os.path.join(self.cfg.save_dir, 'model_last.pth'), epoch, self._iter, self.optimizer)
             for k, v in train_loss_dict.items():
                 self.logger.scalar_summary('Epoch_loss/' + k, 'train', v, epoch)
 
             # --------evaluate----------
+            # val_intervals 마다 evaluate를 실행함
             if self.cfg.schedule.val_intervals > 0 and epoch % self.cfg.schedule.val_intervals == 0:
+                #run_epoch를 val mode로 수행하여 결괏값만 받아옴
                 with torch.no_grad():
                     results, val_loss_dict,_ = self.run_epoch(self.epoch, val_loader, mode='val')
                 for k, v in val_loss_dict.items():

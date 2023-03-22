@@ -324,6 +324,7 @@ class GFLHead(AnchorHead):
 
     def post_process(self, preds, meta):
         cls_scores, bbox_preds = preds
+        # confidence의 threshold를 넘기지 못하는 prediction을 버리고 결괏값을 후처리하는 거 같음
         result_list = self.get_bboxes(cls_scores, bbox_preds, meta)
         preds = {}
         warp_matrix = meta['warp_matrix'][0] if isinstance(meta['warp_matrix'], list) else meta['warp_matrix']

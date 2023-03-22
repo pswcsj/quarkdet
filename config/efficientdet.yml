@@ -108,7 +108,7 @@ evaluator:
 
 log:
   interval: 10 #10
-
+# 이 interval마다 한번씩 validation을 진행함
 class_names: ["big_balance", "sender", "in_out", "time", "small_balance"]
 
 #   {
