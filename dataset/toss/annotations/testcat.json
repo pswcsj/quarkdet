@@ -1,0 +1,172 @@
+{
+   "info": {
+      "description": "COCO 2017 Dataset",
+      "url": "http://cocodataset.org",
+      "version": "1.0",
+      "year": 2017,
+      "contributor": "COCO Consortium",
+      "date_created": "2017/09/01"
+    },
+  "images": [
+    {
+        "file_name": "Cats_Test0.png",
+        "height": 350,
+        "width": 233,
+        "id": 96
+    },
+    {
+        "file_name": "Cats_Test49.png",
+        "height": 500,
+        "width": 375,
+        "id": 97
+    },
+    {
+        "file_name": "Cats_Test61.png",
+        "height": 300,
+        "width": 378,
+        "id": 98
+    },
+    {
+        "file_name": "Cats_Test75.png",
+        "height": 263,
+        "width": 500,
+        "id": 99
+    },
+    {
+        "file_name": "Cats_Test74.png",
+        "height": 375,
+        "width": 500,
+        "id": 100
+    },
+    {
+        "file_name": "Cats_Test60.png",
+        "height": 375,
+        "width": 500,
+        "id": 101
+    },
+    {
+        "file_name": "Cats_Test48.png",
+        "height": 334,
+        "width": 500,
+        "id": 102
+    },
+    {
+        "file_name": "Cats_Test1.png",
+        "height": 500,
+        "width": 500,
+        "id": 103
+    }
+]
+,
+  "annotations": [
+    {
+        "image_id": 96,
+        "bbox": [
+            83,
+            29,
+            114,
+            113
+        ],
+        "category_id": 0,
+        "id": 96,
+        "iscrowd": 0,
+        "area": 12882
+    },
+    {
+        "image_id": 97,
+        "bbox": [
+            113,
+            137,
+            118,
+            139
+        ],
+        "category_id": 1,
+        "id": 97,
+        "iscrowd": 0,
+        "area": 16402
+    },
+    {
+        "image_id": 98,
+        "bbox": [
+            255,
+            161,
+            106,
+            113
+        ],
+        "category_id": 0,
+        "id": 98,
+        "iscrowd": 0,
+        "area": 11978
+    },
+    {
+        "image_id": 99,
+        "bbox": [
+            346,
+            77,
+            63,
+            85
+        ],
+        "category_id": 0,
+        "id": 99,
+        "iscrowd": 0,
+        "area": 5355
+    },
+    {
+        "image_id": 100,
+        "bbox": [
+            257,
+            40,
+            109,
+            145
+        ],
+        "category_id": 1,
+        "id": 100,
+        "iscrowd": 0,
+        "area": 15805
+    },
+    {
+        "image_id": 101,
+        "bbox": [
+            155,
+            1,
+            212,
+            182
+        ],
+        "category_id": 1,
+        "id": 101,
+        "iscrowd": 0,
+        "area": 38584
+    },
+    {
+        "image_id": 102,
+        "bbox": [
+            87,
+            57,
+            229,
+            199
+        ],
+        "category_id": 1,
+        "id": 102,
+        "iscrowd": 0,
+        "area": 45571
+    },
+    {
+        "image_id": 103,
+        "bbox": [
+            128,
+            22,
+            112,
+            200
+        ],
+        "category_id": 1,
+        "id": 103,
+        "iscrowd": 0,
+        "area": 22400
+    }
+]
+,
+  "categories": [
+          {"id": 0,"name": "cat"},
+          {"id": 1,"name": "dog"}
+    ]
+}

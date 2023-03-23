@@ -46,26 +46,16 @@ model:
 data:
   train:
     name: toss
-    img_path: dataset/toss/train
-    ann_path: dataset/toss/annotations/train.json
+    img_path: dataset/toss/catdog_train
+    ann_path: dataset/toss/annotations/traincat.json
     input_size: [320,320] #[w,h]
     keep_ratio: True
     pipeline:
-      perspective: 0.0
-      scale: [0.6, 1.4]
-      stretch: [[1, 1], [1, 1]]
-      rotation: 0
-      shear: 0
-      translate: 0
-      flip: 0.5
-      brightness: 0.2
-      contrast: [0.8, 1.2]
-      saturation: [0.8, 1.2]
       normalize: [[103.53, 116.28, 123.675], [57.375, 57.12, 58.395]]
   val:
     name: toss
-    img_path: dataset/toss/test
-    ann_path: dataset/toss/annotations/test.json
+    img_path: dataset/toss/catdog_test
+    ann_path: dataset/toss/annotations/testcat.json
     input_size: [320,320] #[w,h]
     keep_ratio: True
     pipeline:
@@ -109,7 +99,7 @@ evaluator:
 log:
   interval: 10 #10
 # 이 interval마다 한번씩 log기록 진행함
-class_names: ["big_balance", "sender", "in_out", "time", "small_balance"]
+class_names: ["cat", "dog"]
 
 #   {
 # 	'img': tensor([
